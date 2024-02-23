@@ -1,0 +1,49 @@
+its a simple project to explaning how fields work and are saved.
+Between each text and command there is an explanation that you can review and work on to get used to it.
+________________________________________________________________________________________________________________________________________________________________________
+import tkinter as tk
+
+def save_info():
+    name = name_entry.get()
+    age = age_entry.get()
+    type = type_entry.get()
+
+    # Handle potential errors (e.g., invalid age format)
+    try:
+        age = int(age)
+    except ValueError:
+        print("Invalid age format. Please enter a number.")
+        return
+
+    # Save the information (replace this with your desired saving method)
+    with open("data.txt", "a") as file:  # Append to a text file
+        file.write(f"Name: {name}, Age: {age}, Type: {type}\n")
+
+    print("Information saved successfully!")
+
+window = tk.Tk()
+window.title("Magdy")
+window.geometry('350x150+500+100')
+window.resizable(False,False)
+# create the photo
+# Create labels and entries for name, age, and type
+name_label = tk.Label(window, text="Name:")
+name_label.grid(row=0, column=0)
+name_entry = tk.Entry(window,font=80)
+name_entry.grid(row=0, column=1)
+
+age_label = tk.Label(window, text="Age:")
+age_label.grid(row=1, column=0)
+age_entry = tk.Entry(window,font=50)
+age_entry.grid(row=1, column=1)
+
+type_label = tk.Label(window, text="Type:")
+type_label.grid(row=2, column=0)
+type_entry = tk.Entry(window,font=40)
+type_entry.grid(row=2, column=1)
+
+# Create the "Save" button
+save_button = tk.Button(window, text="Save", command=save_info)
+save_button.grid(row=3, column=0, columnspan=2)
+
+window.mainloop()
