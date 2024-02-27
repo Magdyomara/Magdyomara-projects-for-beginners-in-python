@@ -1,0 +1,18 @@
+import random
+
+class Car:
+  def __init__(self, x, y, speed):
+    self.x = x
+    self.y = y
+    self.speed = speed
+
+  def move(self):
+    # Simulate random movement within boundaries
+    self.x += random.randint(-1, 1)
+    self.y += random.randint(-1, 1)
+
+# Create a car object and simulate movement
+car = Car(0, 0, 5)
+for _ in range(10):
+  car.move()
+  print(f"Car position: ({car.x}, {car.y})")
