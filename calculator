@@ -1,0 +1,48 @@
+# Define functions for each operation
+def add(x, y):
+  """Adds two numbers together and returns the result."""
+  return x + y
+
+def subtract(x, y):
+  """Subtracts one number from another and returns the result."""
+  return x - y
+
+def multiply(x, y):
+  """Multiplies two numbers together and returns the result."""
+  return x * y
+
+def divide(x, y):
+  """Divides one number by another and returns the result.
+  Handles division by zero error."""
+  if y == 0:
+    return "Error: Cannot divide by zero"
+  else:
+    return x / y
+
+# Get user input for operation and numbers
+while True:
+  operation = input("Enter an operation (+, -, *, /): ")
+  num1 = float(input("Enter first number: "))
+  num2 = float(input("Enter second number: "))
+
+  # Perform the operation based on the user's input
+  if operation == "+":
+    result = add(num1, num2)
+  elif operation == "-":
+    result = subtract(num1, num2)
+  elif operation == "*":
+    result = multiply(num1, num2)
+  elif operation == "/":
+    result = divide(num1, num2)
+  else:
+    result = "Invalid operation"
+
+  # Print the result
+  print(result)
+
+  # Ask the user if they want to perform another calculation
+  another_calculation = input("Do you want to perform another calculation? (y/n): ")
+  if another_calculation.lower() != 'y':
+    break
+
+print("Thank you for using the calculator!")
